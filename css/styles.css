@@ -1,14 +1,62 @@
-* {
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?7pyjj1');
+    src:    url('../fonts/icomoon.eot?7pyjj1#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?7pyjj1') format('truetype'),
+        url('../fonts/icomoon.woff?7pyjj1') format('woff'),
+        url('../fonts/icomoon.svg?7pyjj1#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone:before {
+    content: "\e942";
+}
+.icon-menu:before {
+    content: "\e9bd";
+}
+.icon-close:before {
+    content: "\ea0d";
+}
+.icon-mail:before {
+    content: "\ea83";
+}
+
+/** {
 	margin: 0 auto;
+}*/
+
+body {
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 #header {
 	background-color:rgb(237, 204, 10);
+	margin: 0;
 }
 
 #header img {
 	display: block;
 	padding-top: 40px;
+	margin: 0 auto;
 }
 
 .menu ul li a, li {
@@ -30,9 +78,9 @@
  	padding-bottom: 10px;
 }
 
-.menu li:before {
+/*.menu li:before {
 	content: '*';
-}
+}*/
 
 #opcionesMenu {
 	float:left;
@@ -53,21 +101,23 @@
 
 #banner {
     background-image: url('../images/banner01.jpg');
-    background-size: 100%;
-    height: 446px;
-    margin-top: 62px;
-    margin-bottom: 40px;
+    background-size: cover;
+    background-position: top;
+    height: 360px;
+    margin-top: 0;
+    margin-bottom: 0;
     border-color: white;
-    border-width: 18px;
+    border-width: 12px;
     border-style: solid;
     color: white;
 }
 
 #banner h1 {
 	font-family: 'Tangerine', cursive;
-	font-size: 80px;
-	padding-top: 150px;
+	font-size: 120px;
 	padding-left: 30px;
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 #banner h3 {
@@ -92,6 +142,8 @@
 }
 
 #productos h2 {
+	margin-top: 15px;
+	margin-bottom: 15px;
 	font-family: 'Tangerine', cursive;
 	font-size: 80px;
 	text-align: center;
@@ -111,11 +163,55 @@
 	margin: auto;
 	margin-top: 25px;
 	margin-bottom: 25px;
-	overflow: hidden;
+	overflow: hidden; /*para esconder las cosas de afuera*/
 	border-style: solid;
 	border-color: black;
 	border-width: 1px;
 	border-radius: 5px;
+}
+
+.bolso img {
+	transition: .8s;
+}
+
+.bolso:hover img {
+	transform: scale(1.3);
+}
+
+.bolso .textoDerecha h4 {
+	transform: translateX(-600px);
+	transition: .3s;
+}
+
+.bolso:hover .textoDerecha h4 {
+	transform: translateX(0);
+}
+
+.bolso .textoDerecha p {
+	transform: translateX(-600px);
+	transition: .5s;
+}
+
+.bolso:hover .textoDerecha p {
+	transform: translateX(0);
+}
+
+.bolso .textoIzquierda h4 {
+	transform: translateX(600px);
+	transition: .3s;
+}
+
+.bolso:hover .textoIzquierda h4 {
+	transform: translateX(0);
+}
+
+.bolso .textoIzquierda p {
+	transform: translateX(600px);
+	transition: .5s;
+}
+
+.bolso:hover .textoIzquierda p {
+	transform: translateX(0);
 }
 
 .bolso h4 {
@@ -152,13 +248,21 @@
 	text-align: center;
 }
 
+footer {
+	/*position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;*/
+
+}
+
 .footer {
 	background-color:rgb(237, 204, 10);
 }
 
 .contenedor {
 	margin: auto;
-	width: 900px;
+	width: 720px;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -226,10 +330,12 @@
 	margin-right: 15px;
 }
 
+.col1 h5 {
+	display: none;
+}
+
 table {
 	width: 100%;
-	margin-top: 100px;
-	margin-bottom: 50px;
 }
 
 th {
@@ -246,4 +352,276 @@ td {
 table, td, th {
 	border: 1px solid rgb(237, 204, 10);
 	border-collapse: collapse;
+}
+
+#contenidoPrecios {
+	flex: 1;
+}
+
+.burguer-button {
+	display: inline-block;
+	text-align: center;
+	color: white;
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,0.05);
+	position: fixed;
+	left: 10px;
+	top: 10px;
+	cursor: pointer;
+	z-index: 3;
+	display: none;
+}
+
+.video-responsive-contenedor {
+	position: relative;
+	padding-top: 56.25%;
+}
+
+.video-responsive-src {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.video-demo {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+/************************AQUI EMPIEZAN LOS MEDIA QUERIES************************/
+
+@media screen and (max-width: 925px) {
+	/*.contenidoIndex {
+		width: auto;
+		max-width: 800px;
+		border: 10px solid red;
+	}*/
+
+	#banner {
+	    height: auto;
+	    border-width: 9px;
+	}
+
+	#banner h1 {
+	    font-size: 80px;
+	}
+
+	#banner h3 {
+		font-size: 16px;
+	}
+
+	#banner button {
+    	margin-bottom: 40px;
+	}
+
+	.productos {
+		width: 100vw !important;
+	}
+
+	.bolso {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.derecha, .izquierda {
+		float: none;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.textoDerecha {
+		padding-top: 0;
+		padding-right: 0;
+	}
+
+	.textoIzquierda {
+		padding-top: 0;
+		padding-left: 0;
+	}
+
+	.tabla .contenedor {
+		overflow: auto;
+		border: 1px solid rgb(237, 204, 10);
+	}
+
+	.tabla {
+		margin: 50px 8px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.footer .contenedor{
+		width: auto;
+		display: block;
+	}
+	
+	.contacto img{
+	    margin: 0 auto;
+	}
+
+	.telAndMail a {
+	    margin-right: 0;
+	    width: 50%;
+	}
+
+	.telAndMail {
+	    justify-content: space-between;
+	    width: 60vw;
+	    margin: 0 auto;
+	    margin-top: 20px;
+	}
+
+	.formulario {
+		display: block;
+		margin: 0 auto;
+		width: 80vw;
+		padding-top: 10px;
+	}
+
+	.col2 input {
+	    display: block;
+	    width: 100px;
+	    margin: 0 auto;
+	    margin-top: 10px;
+	}
+
+	.col2 textarea {
+	    font-size: 16px;
+	}
+
+	.sexo label {
+		display:block;
+	}
+
+	.intereses label {
+		display:block;
+	}
+
+	.col1 h5 {
+		margin: 5px 0;
+		display: block;
+	}
+
+	.col1 input[type="text"], .col1 input[type="email"] {
+		font-size: 16px;
+		padding: 5px;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	
+	#opcionesMenu li {
+	    padding-right: 25px;
+	    padding-left: 25px;
+	}
+
+}
+
+@media screen and (max-width: 650px) {
+	
+	.menu {
+		margin-left: 4px;
+		padding-top: 15px;
+	    padding-bottom: 4px;
+	}
+
+	#opcionesMenu {
+		position: static;
+	}
+
+	#opcionesMenu li {
+		padding: 0;
+		background-color: rgba(0,0,0,0.05);
+	    border-radius: 5px;
+	    width: 48vw;
+	    height: 40px;
+	    margin: 3px;
+	    position: static;
+	}
+
+	#opcionesMenu li a{
+		width:inherit;
+		text-align:center;
+		padding-top: 10px;
+	}
+
+	.logo {
+		margin: 0;
+	}
+
+	#header img {
+    	padding-top: 20px;
+	}
+}
+	
+/*MEDIA QUERY PARA SMARTPHONES - INICIO*/
+
+@media screen and (max-width: 500px) {
+
+	.tabla .contenedor {
+		width: 95vw;
+	}
+
+	#opcionesMenu li {
+		padding: 0;
+		margin: 0;
+		margin-bottom: 4px;
+		background-color: rgba(0,0,0,0.05);
+	    width: 100vw;
+	    height: 35px;
+	    position: static;
+	    border-radius: 0px;
+
+	}
+
+	#opcionesMenu li:last-child {
+		margin-bottom: 0;
+	}
+
+	#opcionesMenu li a{
+		padding-top: 7px;
+	}
+
+	.menu {
+		margin-left: 0;
+	    padding-top: 15px;
+	    padding-bottom: 0;
+	    background-color: rgba(237, 204, 10,0.95); /*rgba(237, 204, 10,0.5)*/
+	    position: fixed;
+	    z-index: 2;
+	    left: -100%;
+	    right: 0;
+	    top: 0;
+	    bottom: 0;
+	    display: flex;
+	    align-items: center;
+	    transition: 300ms;
+	}
+
+	.menu.active {
+		left: 0;
+	}
+
+	body.noScrollBody {
+		overflow-y: hidden;
+	}
+	
+	.burguer-button {
+		display: inline-block;
+	}
+}
+
+/*MEDIA QUERY PARA SMARTPHONES - FIN*/
+
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+	#banner {
+    	background-image: url('../images/banner01_2x.jpg');
+    }
 }

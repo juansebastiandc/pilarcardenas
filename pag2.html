@@ -2,29 +2,31 @@
 
 <html>
 	<head>
-		<title>Página 2</title>
+		<title>Lista de Precios</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="css/styles.css"/>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 	</head>
 
-	<body>
+	<body id="body">
 		<header id="header" class="header">
 			<figure class="logo"> <!-- logo -->
-				<img src="images/logo.png" width="227" height="156" alt="logo Pilar Cárdenas"/>
+				<img src="images/logo.png" srcset="images/logo.png 1x, images/logo2x.png 2x" width="227" height="156" alt="logo Pilar Cárdenas"/>
 			</figure>
-			<nav class="menu"> <!-- menu -->
+			<span class="burguer-button icon-menu" id="burguer-button"></span>
+			<nav class="menu" id="menu"> <!-- menu -->
 				<ul id="opcionesMenu">
 					<li>
-						<a href="index.html">NOSOTROS</a>
+						<a href="index.html">MUJER</a>
 					</li>
 					<li>
-						<a href="index.html#productos">MUJER</a>
+						<a href="index.html#productos">HOMBRE</a>
 					</li>
 					<li>
-						<a href="pag2.html">HOMBRE</a>
+						<a href="pag2.html">NOSOTROS</a>
 					</li>
 					<li>
 						<a href="contacto.html">CONTACTO</a>
@@ -33,11 +35,14 @@
 			</nav>
 		</header>
 
-		<section class="tabla">
+		<section id="contenidoPrecios" class="tabla">
 			<div class="contenedor">
 				<table>
 					<thead>
 						<tr>
+							<th>Modelo</th>
+							<th>Precio</th>
+							<th>Descripción</th>
 							<th>Modelo</th>
 							<th>Precio</th>
 							<th>Descripción</th>
@@ -48,10 +53,16 @@
 							<td>Bolso Po 2334</td>
 							<td>$190.000</td>
 							<td>Bolso de 30cm por 40cm de color rojo mate con aplicaciones de imitación piel de serpiente en rojo charol.</td>
+							<td>Bolso Po 2334</td>
+							<td>$190.000</td>
+							<td>Bolso de 30cm por 40cm de color rojo mate con aplicaciones de imitación piel de serpiente en rojo charol.</td>
 						</tr>
 
 						<tr>
 							<td>Bolso Po 2335</td>
+							<td>$190.000</td>
+							<td>Bolso de 30cm por 40cm de color rojo mate con aplicaciones de imitación piel de serpiente en rojo charol.</td>
+							<td>Bolso Po 2334</td>
 							<td>$190.000</td>
 							<td>Bolso de 30cm por 40cm de color rojo mate con aplicaciones de imitación piel de serpiente en rojo charol.</td>
 						</tr>
@@ -60,16 +71,21 @@
 							<td>Bolso Po 2336</td>
 							<td>$190.000</td>
 							<td>Bolso de 30cm por 40cm de color rojo mate con aplicaciones de imitación piel de serpiente en rojo charol.</td>
+							<td>Bolso Po 2334</td>
+							<td>$190.000</td>
+							<td>Bolso de 30cm por 40cm de color rojo mate con aplicaciones de imitación piel de serpiente en rojo charol.</td>
 						</tr>
+
+
 					</tbody>
 				</table>
 			</div>
 		</section>
 
-		<footer class="footer">
+		<footer id="footer" class="footer">
 			<div class="contenedor">
 				<div class="contacto">
-					<img src="images/logo.png" alt="logo Pilar Cárdenas"/>
+					<img src="images/logo.png" srcset="images/logo.png 1x, images/logo2x.png 2x" alt="logo Pilar Cárdenas"/>
 					<div class="telAndMail">
 						<a href="tel:+573003423359"><strong>TELÉFONO</strong> <span>3003423359</span></a>
 						<a href="mailto:juancduran0204@hotmail.com"><strong>CORREO</strong> <span>juancduran0204@hotmail.com</span></a>
@@ -115,5 +131,37 @@
 				</form>
 			</div>
 		</footer>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.6.2/blazy.min.js"></script> -->
+
+		<script>
+			var consulta = window.matchMedia('(max-width:500px)');
+			consulta.addListener(mediaQuery);
+
+			function toggleMenu(){
+				$menu.classList.toggle('active');
+			}
+			
+			var $burguerButton = document.getElementById('burguer-button');
+			var $menu = document.getElementById('menu');
+
+			function mediaQuery() {
+				if(consulta.matches){
+					console.log('se cumplió la condición');
+					$burguerButton.addEventListener('click', toggleMenu); //porner touchstart en lugar de click
+				}else {
+					console.log('no se cumplió la condición');
+					$burguerButton.removeEventListener('click', toggleMenu); //porner touchstart en lugar de click
+				}
+			}
+
+			mediaQuery();
+
+			//lazy loading
+			var bLazy = new Blazy({
+			    // options
+			    selector: 'img'
+			});
+
+		</script>
 	</body>
 </html>
